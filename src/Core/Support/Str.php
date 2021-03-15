@@ -71,11 +71,8 @@ final class Str
      */
     public static function dasherize(string $value): string
     {
-        if (isset(self::$dasherized[$value])) {
-            return self::$dasherized[$value];
-        }
-
-        return self::$dasherized[$value] = str_replace('_', '-', self::snake($value));
+        // replace implementation of dasherize for values to permit arbitrary model columns
+        return self::$dasherized[$value] = self::snake($value);
     }
 
     /**
